@@ -104,7 +104,7 @@ func (g *GoogleCloudStorage) State(key string) (oss.OSSState, error) {
 }
 
 func (g *GoogleCloudStorage) List(prefix string) ([]oss.OSSPath, error) {
-	if !strings.HasSuffix(prefix, "/") {
+	if prefix != "" && !strings.HasSuffix(prefix, "/") {
 		prefix = prefix + "/"
 	}
 	ctx := context.Background()
